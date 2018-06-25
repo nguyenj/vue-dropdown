@@ -1,0 +1,38 @@
+{
+  "name": "vue-simple-dropdown",
+  "version": "1.0.0-rc.0",
+  "description": "A simple yet smooth full-fledged Vue dropdown menu that just works.",
+  "main": "dist/dropdown.js",
+  "files": [
+    "src",
+    "dist"
+  ],
+  "scripts": {
+    "prepublishOnly": "npm run build",
+    "build": "rm -rf dist && rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "dropdown",
+    "menu",
+    "navigation",
+    "renderless",
+    "vue"
+  ],
+  "author": "John Nguyen",
+  "license": "MIT",
+  "devDependencies": {
+    "rollup": "^0.61.2",
+    "rollup-plugin-vue": "^4.2.0",
+    "vue-template-compiler": "^2.5.16"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nguyenj/vue-simple-dropdown.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nguyenj/vue-simple-dropdown/issues"
+  },
+  "homepage": "https://github.com/nguyenj/vue-simple-dropdown#readme"
+}
