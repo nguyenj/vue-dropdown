@@ -21,14 +21,14 @@ npm install --save vue-simple-dropdown
 
           <ul v-if='visible' class='dropdown'>
             <li v-for='(child, childIdx) in item.children' :key='childIdx'>
-              <a :href='child.link' :title='child.label'>{{ child.label }}</a>
+              <a :href='child.link' :title='child.label' @click.prevent>{{ child.label }}</a>
             </li>
           </ul>
         </li>
       </Dropdown>
 
       <li :key='index' v-else>
-        <a :href='item.link' :title='item.label'>{{ item.label }}</a>
+        <a :href='item.link' :title='item.label' @click.prevent>{{ item.label }}</a>
       </li>
 
     </template>
