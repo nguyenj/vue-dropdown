@@ -14,64 +14,48 @@ npm install --save vue-simple-dropdown
 <template>
   <ul>
     <template v-for='(item, index) in menuItems'>
-      <Dropdown v-if='item.children' slot-scope='{ visible }' :key='index'>
-        <li class='hasDropdown'>
+
+      <Dropdown :key='index' v-if='item.children && item.children.length'>
+        <li class='hasDropdown' slot-scope='{ visible }'>
           <button type='button' class='link'>{{ item.label }}</button>
+
           <ul v-if='visible' class='dropdown'>
-            <li v-for='(child, childIdx) in item.children' :key='index'>
+            <li v-for='(child, childIdx) in item.children' :key='childIdx'>
               <a :href='child.link' :title='child.label'>{{ child.label }}</a>
             </li>
           </ul>
         </li>
       </Dropdown>
 
-      <li v-else :key='index'>
+      <li :key='index' v-else>
         <a :href='item.link' :title='item.label'>{{ item.label }}</a>
       </li>
+
     </template>
-  <ul>
+  </ul>
 </template>
 
 <script>
-import Dropdown from 'vue-simple-dropdown'
+import Dropdown from 'vue-simple-dropdown/dist/dropdown.js'
 
 export default {
-  components: [ Dropdown ],
+  components: { Dropdown },
   data () {
     return {
       menuItems: [
+        { label: 'Home', link: '/' },
         {
-          label: 'Home',
-          link: '/'
-        },
-        {
-          label: 'Create'
-          children: [
-            {
-              label: 'Repository',
-              link: '/repo/new'
-            },
-            {
-              label: 'Gist',
-              link: '/gist/new'
-            }
+          label: 'Create', children: [
+            { label: 'Repository', link: '/repo/new' },
+            { label: 'Gist', link: '/gist/new' }
           ]
         },
         {
           label: 'Settings',
           children: [
-            {
-              label: 'Profile',
-              link: '/settings/profile'
-            },
-            {
-              label: 'Account',
-              link: '/settings/account'
-            },
-            {
-              label: 'Support',
-              link: '/support'
-            }
+            { label: 'Profile', link: '/settings/profile' },
+            { label: 'Account', link: '/settings/account' },
+            { label: 'Support', link: '/support' }
           ]
         }
       ]
