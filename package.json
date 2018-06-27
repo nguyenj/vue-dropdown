@@ -1,6 +1,6 @@
 {
   "name": "vue-simple-dropdown",
-  "version": "1.0.0-rc.2",
+  "version": "1.0.0",
   "description": "A simple yet smooth full-fledged Vue dropdown menu that just works.",
   "main": "dist/dropdown.js",
   "files": [
